@@ -8,7 +8,7 @@ import Button from "react-bootstrap/Button";
 
 const SearchBar = () => {
   const [searchValue, setSearchValue] = useState("");
-  const [result, setResult] = useState("");
+  // const [result, setResult] = useState("");
   const [loading, isLoading] = useState(null);
   const MOVIE_SEARCH = `http://www.omdbapi.com/?t=${searchValue}&apikey=da7a21e1`;
 
@@ -27,7 +27,7 @@ const SearchBar = () => {
       const response = await fetch(MOVIE_SEARCH, settings);
       const json = await response.json();
       if (response.status !== 200) throw Error(json.message);
-      setResult(json);
+      // setResult(json);
       console.log(typeof json);
       return json;
     } catch (error) {
@@ -52,7 +52,7 @@ const SearchBar = () => {
   };
 
   return (
-    <div>
+    <div className="search-form-container">
       <Form inline onSubmit={callSearchFunction}>
         <FormControl
           value={searchValue}
@@ -61,18 +61,18 @@ const SearchBar = () => {
           className="mr-sm-2"
           placeholder="SEARCH"
         />
-        <Button variant="outline-success" type="submit">
-          Search
-        </Button>
+        <div className="submit-container">
+          <Button type="submit">Search</Button>
+        </div>
       </Form>
-      <ul>
+      {/* <ul>
         <div>
           <div>{result.title}</div>
           <h2>{result.Year}</h2>
           <img src={result.Poster}></img>
           <h2>{result.Plot}</h2>
         </div>
-      </ul>
+      </ul> */}
     </div>
   );
 };
