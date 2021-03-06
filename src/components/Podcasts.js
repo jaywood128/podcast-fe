@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+// import { useState, useEffect } from "react";
 import Podcast from "./Podcast";
 const PODCASTS = [
   {
@@ -39,10 +40,10 @@ const PODCASTS = [
   },
 ];
 
-const BACKEND_PODCASTS = "http://127.0.0.1:8080/api/2/podcasts";
+// const BACKEND_PODCASTS = "http://127.0.0.1:8080/api/2/podcasts";
 const Podcasts = () => {
-  const [podcasts, setPodcasts] = useState([]);
-  const [loading, setLoading] = useState("");
+  // const [podcasts, setPodcasts] = useState([]);
+  // const [loading, setLoading] = useState("");
 
   // useEffect(() => {
   // setPodcasts(PODCASTS);

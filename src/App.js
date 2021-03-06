@@ -1,11 +1,24 @@
-import logo from "./logo.svg";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./App.css";
+// import "./App.css";
+// import Signup from "./components/Signup";
+import React from "react";
+import NavBar from "./components/NavBar.js";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Podcasts from "./components/Podcasts";
+// import VerticalNavBar from "./components/VerticalNavBar";
 
 function App() {
   return (
     <div className="App">
-      <h1>Hello World!</h1>
+      <Router>
+        <div>
+          {/* <VerticalNavBar /> */}
+          <NavBar />
+          {/* <Signup /> */}
+        </div>
+        <main>
+          <Route exact path="/Library" component={Podcasts} />
+        </main>
+      </Router>
     </div>
   );
 }

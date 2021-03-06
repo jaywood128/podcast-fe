@@ -8,8 +8,8 @@ const Podcast = (podcasts) => {
       {console.log(podcasts.podcasts[0]["image"])}
       {podcasts.podcasts.map((podcast) => {
         return (
-          <div className="podcast-container">
-            <Card key={podcast.id} style={{ width: "50vh" }}>
+          <div key={podcast.id} className="podcast-container">
+            <Card style={{ width: "50vh" }}>
               <img src={podcast.image}></img>
               <Card.Body>
                 <Card.Title>{podcast.title_highlighted}</Card.Title>

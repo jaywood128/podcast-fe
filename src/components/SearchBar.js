@@ -1,9 +1,8 @@
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
-import { Container } from "react-bootstrap";
 
 // const BACKEND_SEARCH = "http://127.0.0.1:8080/api/full-text-search/";
 
@@ -14,7 +13,8 @@ const SearchBar = () => {
   const MOVIE_SEARCH = `http://www.omdbapi.com/?t=${searchValue}&apikey=da7a21e1`;
 
   async function searchCall() {
-    console.log(typeof searchValue);
+    console.log(searchValue);
+    console.log(loading);
     const settings = {
       method: "POST",
       headers: {

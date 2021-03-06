@@ -1,5 +1,4 @@
 import React from "react";
-import { BrowserRouter as Router, Link } from "react-router-dom";
 import Nav from "react-bootstrap/Nav";
 import SearchBar from "./SearchBar";
 
@@ -8,7 +7,7 @@ const NavBar = () => {
     <>
       <div className="search-bar-container">
         <div className="icon-container">
-          <i class="fas fa-podcast fa-5x"></i>
+          <i className="fas fa-podcast fa-5x"></i>
         </div>
         <SearchBar />
       </div>

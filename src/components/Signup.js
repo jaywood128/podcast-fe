@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import React from "react";
 
 const Signup = () => {
@@ -9,7 +9,7 @@ const Signup = () => {
     email: "",
     password: "",
   });
-  const [result, setResult] = useState({});
+  // const [result, setResult] = useState({});
 
   async function postFormFetch() {
     console.log(input);
