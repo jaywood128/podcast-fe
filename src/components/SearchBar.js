@@ -1,8 +1,8 @@
 // import { useEffect } from "react";
 import React, { useState } from "react";
-// import Form from "react-bootstrap/Form";
-// import FormControl from "react-bootstrap/FormControl";
-// import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import FormControl from "react-bootstrap/FormControl";
+import Button from "react-bootstrap/Button";
 
 // const BACKEND_SEARCH = "http://127.0.0.1:8080/api/full-text-search/";
 
@@ -52,18 +52,17 @@ const SearchBar = () => {
   };
 
   return (
-    <div>
-      {/* // <div className="search-form-container"> */}
-      <form inline onSubmit={callSearchFunction}>
-        <input
+    <div className="search-form-container">
+      <Form inline onSubmit={callSearchFunction}>
+        <FormControl
           value={searchValue}
           onChange={handleSearchInputChanges}
           type="text"
           className="mr-sm-2"
           placeholder="SEARCH"
         />
-        <button type="submit">Search</button>
-      </form>
+        <Button type="submit">Search</Button>
+      </Form>
       {/* <ul>
         <div>
           <div>{result.title}</div>
