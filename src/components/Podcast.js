@@ -1,28 +1,23 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
 
 const Podcast = (podcasts) => {
   return (
-    <div>
-      {console.log(podcasts.podcasts[0]["image"])}
+    <>
       {podcasts.podcasts.map((podcast) => {
         return (
           <div key={podcast.id} className="podcast-container">
-            <Card style={{ width: "50vh" }}>
+            <Card style={{ width: "18rem;" }}>
               <img src={podcast.image}></img>
               <Card.Body>
-                <Card.Title>{podcast.title_highlighted}</Card.Title>
-                <Card.Text>{podcast.publisher_orignal}</Card.Text>
-                <Button src={`#{result.listennotes_url}`} variant="primary">
-                  Stream
-                </Button>
+                <Card.Title>{podcast.title}</Card.Title>
+                <Card.Text>{podcast.description}</Card.Text>
               </Card.Body>
             </Card>
           </div>
         );
       })}
-    </div>
+    </>
   );
 };
 

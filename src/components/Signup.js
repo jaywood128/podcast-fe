@@ -2,6 +2,7 @@ import { useState } from "react";
 import React from "react";
 
 const Signup = () => {
+  // eslint-disable-next-line no-unused-vars
   const [loading, setLoading] = useState("");
   const [input, setInput] = useState({
     name: "",

@@ -32,9 +32,10 @@
   position: relative;
 }
 .sidebar {
+  position: fixed;
   width: 300px;
   height: 100%;
-  background: #4b4276;
+  /* background: #181818; */
   padding: 30px 0px;
 }
 
@@ -52,18 +53,34 @@
   display: inline;
 }
 
+.link {
+  margin-left: 2px;
+}
+
+.fa .fas {
+  color: #b3b3b3 !important;
+}
+
 /* .vertical-nav-bar-container {
   display: inline;
 } */
 
 .search-form-container {
-  display: flex;
+  /* display: inline;
   margin-left: 25px;
   margin-top: 5px;
+  height: 100px;
+  background-color: #b3b3b3 !important;
+  border-style: solid; */
+  /* background-color: #b3b3b3 !important; */
+}
+.form-inline {
+  background-color: #b3b3b3 !important;
 }
 
-.submit-container {
-  display: inline !important;
+input,
+textarea .mr-sm-2 .form-control {
+  background-color: #f8f8f8 !important;
 }
 
 .nav-item {
@@ -85,12 +102,32 @@
 }
 
 .podcasts-container {
-  display: flex;
-  justify-items: flex-start;
+  /* display: flex;
+  flex-direction: column; */
+  background-color: #121212;
+}
+
+div .card {
+  flex-direction: row !important;
+}
+
+.podcast-image {
+  width: 200px;
+  height: 120px;
+}
+
+.podcast-container img {
+  height: auto;
 }
 
 .podcast-container {
+  display: flex;
   margin-left: 100px;
+}
+
+.card-body {
+  width: 500px;
+  height: auto;
 }
 
 form {

@@ -8,12 +8,19 @@ const VerticalNavBar = () => {
         <h2>Sidebar</h2>
         <ul>
           <li>
-            {" "}
-            <i className="fas fa-list"></i>
-            <Link to="#">Shows</Link>
+            <i className="fas fa-home" style={{ color: "#b3b3b3" }}></i>{" "}
+            <Link to="#">Home</Link>
           </li>
           <li>
-            <i className="fas fa-star"></i> <Link to="#">Favorites</Link>
+            {" "}
+            <i className="fas fa-list" style={{ color: "#b3b3b3" }}></i>
+            <Link to="#" bsClass="link">
+              Shows
+            </Link>
+          </li>
+          <li>
+            <i className="fas fa-star" style={{ color: "#b3b3b3" }}></i>{" "}
+            <Link to="#">Favorites</Link>
           </li>
           <li>Explore</li>
         </ul>

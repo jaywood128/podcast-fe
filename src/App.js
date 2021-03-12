@@ -9,19 +9,17 @@ import VerticalNavBar from "./components/VerticalNavBar";
 
 function App() {
   return (
-    <div className="App">
-      <div className="app-container">
-        <Router>
-          <VerticalNavBar />
-          <SearchBar />
-          {/* <NavBar /> */}
-          {/* <Signup /> */}
-          <Podcasts />
-          <main>
-            <Route exact path="/Library" component={Podcasts} />
-          </main>
-        </Router>
-      </div>
+    <div className="app-container">
+      <Router>
+        <VerticalNavBar />
+        <SearchBar />
+        {/* <NavBar /> */}
+        {/* <Signup /> */}
+        <Podcasts />
+        <main>
+          <Route exact path="/Library" component={Podcasts} />
+        </main>
+      </Router>
     </div>
   );
 }

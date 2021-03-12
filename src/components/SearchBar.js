@@ -61,9 +61,7 @@ const SearchBar = () => {
           className="mr-sm-2"
           placeholder="SEARCH"
         />
-        <div className="submit-container">
-          <Button type="submit">Search</Button>
-        </div>
+        <Button type="submit">Search</Button>
       </Form>
       {/* <ul>
         <div>
