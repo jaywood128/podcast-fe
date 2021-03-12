@@ -30,13 +30,18 @@
 .app-container {
   display: flex;
   position: relative;
+  height: 100vh;
+  width: 100vh;
 }
 .sidebar {
   position: fixed;
   width: 300px;
-  height: 100%;
-  /* background: #181818; */
+  height: 100vh;
+  background: #181818;
   padding: 30px 0px;
+}
+.side-content-conatiner {
+  margin-left: 300px;
 }
 
 .sidebar ul {
@@ -72,7 +77,7 @@
   height: 100px;
   background-color: #b3b3b3 !important;
   border-style: solid; */
-  /* background-color: #b3b3b3 !important; */
+  /* /* background-color: #b3b3b3 !important; */
 }
 .form-inline {
   background-color: #b3b3b3 !important;
@@ -87,7 +92,7 @@ textarea .mr-sm-2 .form-control {
   width: 70% !important;
   display: inline-block;
 }
-*/ .form-inline {
+.form-inline {
   margin-top: 5px;
   margin-left: 50px;
 }
@@ -102,13 +107,19 @@ textarea .mr-sm-2 .form-control {
 }
 
 .podcasts-container {
-  /* display: flex;
-  flex-direction: column; */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  overflow: hidden;
   background-color: #121212;
+  margin-left: 200px;
 }
 
 div .card {
   flex-direction: row !important;
+  flex: 1 1 0;
+  min-width: 0;
 }
 
 .podcast-image {

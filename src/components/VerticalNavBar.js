@@ -5,6 +5,10 @@ const VerticalNavBar = () => {
   return (
     <div className="vertical-nav-bar-wrapper">
       <div className="sidebar">
+        <i
+          className="fas fa-podcast fa-5x"
+          style={{ color: "#b3b3b3", "margin-left": "100px" }}
+        ></i>
         <h2>Sidebar</h2>
         <ul>
           <li>

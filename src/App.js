@@ -12,13 +12,13 @@ function App() {
     <div className="app-container">
       <Router>
         <VerticalNavBar />
-        <SearchBar />
         {/* <NavBar /> */}
         {/* <Signup /> */}
-        <Podcasts />
-        <main>
-          <Route exact path="/Library" component={Podcasts} />
-        </main>
+        <div className="side-content-container">
+          <SearchBar />
+          <Podcasts />
+        </div>
+        <Route exact path="/Library" component={SearchBar} />
       </Router>
     </div>
   );
