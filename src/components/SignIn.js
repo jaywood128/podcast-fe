@@ -1,20 +1,18 @@
 import { useState } from "react";
 import React from "react";
 
-const Signup = () => {
+const SignIn = () => {
   // eslint-disable-next-line no-unused-vars
   const [loading, setLoading] = useState("");
   const [input, setInput] = useState({
-    name: "",
-    username: "",
-    email: "",
+    userName: "",
     password: "",
   });
   // const [result, setResult] = useState({});
 
   async function postFormFetch() {
     // eslint-disable-next-line no-console
-    console.log(input);
+    console.log("Form submission" + JSON.stringify(input));
     const settings = {
       method: "POST",
       headers: {
@@ -28,7 +26,7 @@ const Signup = () => {
     try {
       setLoading("true");
       const response = await fetch(
-        `http://127.0.0.1:8080/api/auth/sign-up`,
+        `http://127.0.0.1:8080/api/auth/sign-in`,
         settings
       );
       const json = await response.json();
@@ -42,12 +40,13 @@ const Signup = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert(input);
     postFormFetch();
   };
 
   const handleInputChange = (e) => {
     e.persist();
+    // eslint-disable-next-line no-console
+    console.log(e.target.value);
     setInput((input) => ({
       ...input,
       [e.target.name]: e.target.value,
@@ -56,46 +55,23 @@ const Signup = () => {
 
   return (
     <div className="main">
-      <div className="signup-wrap">
+      <div className="input-wrap">
         <div className="h2">
-          <h2>Sign up</h2>
+          <h2>Sign in</h2>
         </div>
 
         <form onSubmit={(e) => handleSubmit(e)}>
           <div className="input-wrap">
             <input
               type="text"
-              name="name"
-              placeholder="Your Name"
+              name="userName"
+              placeholder="userName"
               // onChange={(e) => setInput(e.target.value)}
               onChange={(e) => handleInputChange(e)}
-              value={input.name}
+              value={input.userName}
               required
             />
             <br />
-          </div>
-          <div className="input-wrap">
-            <input
-              type="text"
-              name="username"
-              placeholder="Username"
-              // onChange={(e) => setInput(e.target.value)}
-              onChange={(e) => handleInputChange(e)}
-              value={input.username}
-              required
-            />
-            <br />
-          </div>
-          <div className="input-wrap">
-            <input
-              type="email"
-              name="email"
-              // onChange={(e) => setInput(e.target.value)}
-              onChange={(e) => handleInputChange(e)}
-              value={input.email}
-              required
-              placeholder="Email"
-            />
           </div>
           <div className="input-wrap">
             <input
@@ -109,7 +85,7 @@ const Signup = () => {
           </div>
           <div className="signup-button-container">
             <button className="signup-buttom" type="submit">
-              Sign Up
+              Submit
             </button>
           </div>
         </form>
@@ -118,4 +94,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default SignIn;

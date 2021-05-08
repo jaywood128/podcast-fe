@@ -4,16 +4,17 @@ import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
 
-// const BACKEND_SEARCH = "http://127.0.0.1:8080/api/full-text-search/";
+const BACKEND_SEARCH = "http://127.0.0.1:8080/api/full-text-search/";
 
 const SearchBar = () => {
   const [searchValue, setSearchValue] = useState("");
   // const [result, setResult] = useState("");
   const [loading, isLoading] = useState(null);
-  const MOVIE_SEARCH = `http://www.omdbapi.com/?t=${searchValue}&apikey=da7a21e1`;
 
   async function searchCall() {
+    // eslint-disable-next-line no-console
     console.log(searchValue);
+    // eslint-disable-next-line no-console
     console.log(loading);
     const settings = {
       method: "POST",
@@ -24,10 +25,11 @@ const SearchBar = () => {
     };
     try {
       isLoading(true);
-      const response = await fetch(MOVIE_SEARCH, settings);
+      const response = await fetch(BACKEND_SEARCH, settings);
       const json = await response.json();
       if (response.status !== 200) throw Error(json.message);
       // setResult(json);
+      // eslint-disable-next-line no-console
       console.log(typeof json);
       return json;
     } catch (error) {
@@ -48,6 +50,7 @@ const SearchBar = () => {
     e.preventDefault();
     searchCall(e.target.value);
     resetInputField();
+    // eslint-disable-next-line no-console
     console.log(e.target.value);
   };
 

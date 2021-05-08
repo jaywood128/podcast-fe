@@ -25,6 +25,7 @@ const Podcasts = () => {
           if (response.status !== 200) {
             throw Error(json.message);
           } else {
+            // eslint-disable-next-line no-console
             console.log(json);
             setPodcasts(json);
           }
@@ -33,6 +34,7 @@ const Podcasts = () => {
           setLoading("null");
         }
       } catch (e) {
+        // eslint-disable-next-line no-console
         console.log(e.message);
         // setData({ users: data.podcasts, isFetching: false });
       }
@@ -41,9 +43,9 @@ const Podcasts = () => {
   }, []);
 
   return (
-    <div className="podcasts-container">
-      <Podcast podcasts={podcasts} />
-    </div>
+    // <div className="podcasts-container">
+    <Podcast podcasts={podcasts} />
+    // </di>v
   );
 };
 
