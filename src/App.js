@@ -14,14 +14,15 @@ function App() {
   return (
     <div className="app-container">
       <Router>
+        {/* <HomeNavBar /> */}
         {/* <VerticalNavBar /> */}
         {/* <NavBar /> */}
-        <HomeNavBar />
         <HomePage />
         <div className="side-content-container">
           {/* <SearchBar /> */}
           {/* <Podcasts /> */}
         </div>
+        <Route exact path="/" component={HomeNavBar} />
         <Route exact path="/library" component={SearchBar} />
         <Route exact path="/sign-up" component={Signup} />
         <Route exact path="/sign-in" component={SignIn} />

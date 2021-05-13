@@ -28,7 +28,7 @@ const Signup = () => {
     try {
       setLoading("true");
       const response = await fetch(
-        `http://127.0.0.1:8080/api/auth/sign-up`,
+        `http://127.0.0.1:8080/api/auth/signup`,
         settings
       );
       const json = await response.json();
@@ -42,7 +42,7 @@ const Signup = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert(input);
+    // alert(input);
     postFormFetch();
   };
 

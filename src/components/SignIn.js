@@ -65,7 +65,7 @@ const SignIn = () => {
             <input
               type="text"
               name="userName"
-              placeholder="userName"
+              placeholder="username"
               // onChange={(e) => setInput(e.target.value)}
               onChange={(e) => handleInputChange(e)}
               value={input.userName}
@@ -77,7 +77,7 @@ const SignIn = () => {
             <input
               type="password"
               name="password"
-              placeholder="Password"
+              placeholder="password"
               // onChange={(e) => setInput(e.target.value)}
               onChange={(e) => handleInputChange(e)}
               value={input.password}
