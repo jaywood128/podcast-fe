@@ -1,34 +1,32 @@
 // import "./App.css";
-import Signup from "./components/Signup";
 import React from "react";
 // import NavBar from "./components/NavBar.js";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-// import Podcasts from "./components/Podcasts";
-import SearchBar from "./components/SearchBar";
+import Podcasts from "./components/Podcasts";
 // import VerticalNavBar from "./components/VerticalNavBar";
-import SignIn from "./components/SignIn";
-import HomePage from "./components/HomePage";
-import HomeNavBar from "./components/HomeNavBar";
 
-function App() {
+import HomePage from "./components/HomePage";
+// import Podcast from "./components/Podcast";
+// import HomeNavBar from "./components/HomeNavBar";
+// import Podcast from "./components/Podcast";
+import SignIn from "./components/SignIn";
+import Signout from "./components/Signout";
+
+const App = () => {
   return (
     <div className="app-container">
       <Router>
         {/* <HomeNavBar /> */}
-        {/* <VerticalNavBar /> */}
-        {/* <NavBar /> */}
-        <HomePage />
         <div className="side-content-container">
           {/* <SearchBar /> */}
           {/* <Podcasts /> */}
         </div>
-        <Route exact path="/" component={HomeNavBar} />
-        <Route exact path="/library" component={SearchBar} />
-        <Route exact path="/sign-up" component={Signup} />
-        <Route exact path="/sign-in" component={SignIn} />
+        <Route exact path="/" component={HomePage} />
+        <Route exact path="/library" component={Podcasts} />
+        <Route exact path="/signin" component={SignIn} />
+        <Route exact path="/signout" component={Signout} />
       </Router>
     </div>
   );
-}
-
+};
 export default App;

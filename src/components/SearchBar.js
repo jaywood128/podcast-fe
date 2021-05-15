@@ -3,12 +3,14 @@ import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
+// import Podcast from "./Podcast";
 
 const BACKEND_SEARCH = "http://127.0.0.1:8080/api/full-text-search/";
 
 const SearchBar = () => {
   const [searchValue, setSearchValue] = useState("");
-  // const [result, setResult] = useState("");
+  // eslint-disable-next-line no-unused-vars
+  const [response, setResponse] = useState("");
   const [loading, isLoading] = useState(null);
 
   async function searchCall() {
@@ -25,12 +27,12 @@ const SearchBar = () => {
     };
     try {
       isLoading(true);
-      const response = await fetch(BACKEND_SEARCH, settings);
+      // eslint-disable-next-line no-console
+      console.log(loading);
+      const response = await fetch(BACKEND_SEARCH + searchValue, settings);
       const json = await response.json();
       if (response.status !== 200) throw Error(json.message);
-      // setResult(json);
-      // eslint-disable-next-line no-console
-      console.log(typeof json);
+      setResponse(json);
       return json;
     } catch (error) {
       alert(error);
@@ -66,14 +68,6 @@ const SearchBar = () => {
         />
         <Button type="submit">Search</Button>
       </Form>
-      {/* <ul>
-        <div>
-          <div>{result.title}</div>
-          <h2>{result.Year}</h2>
-          <img src={result.Poster}></img>
-          <h2>{result.Plot}</h2>
-        </div>
-      </ul> */}
     </div>
   );
 };

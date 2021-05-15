@@ -1,52 +1,82 @@
 import { useState } from "react";
+import AuthService from "../services/auth.service";
 import React from "react";
+import authService from "../services/auth.service";
 
-const SignIn = () => {
+const SignIn = (props) => {
   // eslint-disable-next-line no-unused-vars
   const [loading, setLoading] = useState("");
   const [input, setInput] = useState({
-    userName: "",
+    username: "",
     password: "",
   });
+  // eslint-disable-next-line no-unused-vars
+  const [message, setMessage] = useState("");
   // const [result, setResult] = useState({});
 
-  async function postFormFetch() {
-    // eslint-disable-next-line no-console
-    console.log("Form submission" + JSON.stringify(input));
-    const settings = {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(input),
-    };
-    // eslint-disable-next-line no-console
-    console.log(JSON.stringify(input));
-    try {
-      setLoading("true");
-      const response = await fetch(
-        `http://127.0.0.1:8080/api/auth/sign-in`,
-        settings
-      );
-      const json = await response.json();
-      if (response.status !== 200) throw Error(json.message);
-      return json;
-    } catch (error) {
-      alert(error);
-      setLoading("null");
-    }
-  }
+  // async function postFormFetch() {
+  //   // eslint-disable-next-line no-console
+  //   console.log("Form submission" + JSON.stringify(input));
+  //   const settings = {
+  //     method: "POST",
+  //     headers: {
+  //       Accept: "application/json",
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify(input),
+  //   };
+  //   // eslint-disable-next-line no-console
+  //   console.log(JSON.stringify(input));
+  //   try {
+  //     setLoading("true");
+  //     const response = await fetch(
+  //       `http://127.0.0.1:8080/api/auth/sign-in`,
+  //       settings
+  //     );
+  //     const json = await response.json();
+  //     if (response.status !== 200) throw Error(json.message);
+  //     return json;
+  //   } catch (error) {
+  //     alert(error);
+  //     setLoading("null");
+  //   }
+  // }
 
-  const handleSubmit = (e) => {
+  const submitSignIn = (e) => {
     e.preventDefault();
-    postFormFetch();
+    // postFormFetch();
+    // eslint-disable-next-line no-console
+    // console.log(
+    //   "User name and password sign in: " + input["username"],
+    //   input["password"]
+    // );
+    // eslint-disable-next-line no-console
+    console.log("Inside submit sign in");
+    // eslint-disable-next-line no-console
+    console.log(input);
+    AuthService.login(input["username"], input["password"]).then(
+      () => {
+        // eslint-disable-next-line no-console
+        console.log(authService.getCurrentUser);
+        props.history.push("/");
+        // window.location.reload();
+      },
+      (error) => {
+        const resMessage =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+
+        // setLoading(false);
+        setMessage(resMessage);
+      }
+    );
   };
 
   const handleInputChange = (e) => {
     e.persist();
-    // eslint-disable-next-line no-console
-    console.log(e.target.value);
     setInput((input) => ({
       ...input,
       [e.target.name]: e.target.value,
@@ -60,15 +90,15 @@ const SignIn = () => {
           <h2>Sign in</h2>
         </div>
 
-        <form onSubmit={(e) => handleSubmit(e)}>
+        <form onSubmit={(e) => submitSignIn(e)}>
           <div className="input-wrap">
             <input
               type="text"
-              name="userName"
+              name="username"
               placeholder="username"
               // onChange={(e) => setInput(e.target.value)}
               onChange={(e) => handleInputChange(e)}
-              value={input.userName}
+              value={input.username}
               required
             />
             <br />

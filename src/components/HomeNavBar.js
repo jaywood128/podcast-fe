@@ -1,34 +1,83 @@
 import React from "react";
+import { Component } from "react";
+import AuthService from "../services/auth.service";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
-const HomeNavBar = () => {
-  return (
-    <>
-      {/* <div className="home-nav-container"> */}
-      <i className="fas fa-podcast fa-5x"></i>
-      <Navbar
-        bg="dark"
-        variant="dark"
-        activeKey="/home"
-        onSelect={(selectedKey) => alert(`selected ${selectedKey}`)}
-      >
-        <Navbar.Brand href="/">
-          <img
-            className="fas fa-podcast fa-5x"
-            style={{ color: "#b3b3b3", "margin-left": "100px" }}
-          ></img>
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="mr-auto">
-            <Nav.Link href="/sign-in">Log-in</Nav.Link>
-            <Nav.Link href="sign-up">Sign up</Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
-      </Navbar>
-      {/* </div> */}
-    </>
-  );
-};
+import UserService from "../services/user.service";
 
+class HomeNavBar extends Component {
+  render() {
+    const user = UserService.isAuth() ? AuthService.getCurrentUser : "";
+    // eslint-disable-next-line no-console
+    console.log("Current User: " + AuthService.getCurrentUser());
+    // AuthService.getCurrentUser() !== null ? AuthService.getCurrentUser() : null;
+    const logout = () => {
+      AuthService.logout();
+    };
+
+    const renderAuthButton = () => {
+      if (user) {
+        return (
+          <>
+            <i className="fas fa-podcast fa-5x"></i>
+            <Navbar
+              bg="dark"
+              variant="dark"
+              activekey="/home"
+              onSelect={(selectedKey) => alert(`selected ${selectedKey}`)}
+            >
+              <Navbar.Brand href="/">
+                <img
+                  className="fas fa-podcast fa-5x"
+                  style={{ color: "#b3b3b3", "margin-left": "100px" }}
+                ></img>
+              </Navbar.Brand>
+              <Navbar.Toggle aria-controls="basic-navbar-nav" />
+              <Navbar.Collapse id="basic-navbar-nav">
+                <Nav className="mr-auto">
+                  <Nav.Link href="/signout" onClick={logout}>
+                    Log out
+                  </Nav.Link>
+                </Nav>
+              </Navbar.Collapse>
+            </Navbar>
+          </>
+        );
+      } else {
+        return (
+          <>
+            {/* <div className="home-nav-container"> */}
+            <i className="fas fa-podcast fa-5x"></i>
+            <Navbar
+              bg="dark"
+              variant="dark"
+              activeKey="/home"
+              onSelect={(selectedKey) => alert(`selected ${selectedKey}`)}
+            >
+              <Navbar.Brand href="/">
+                <img
+                  className="fas fa-podcast fa-5x"
+                  style={{ color: "#b3b3b3", "margin-left": "100px" }}
+                ></img>
+              </Navbar.Brand>
+              <Navbar.Toggle aria-controls="basic-navbar-nav" />
+              <Navbar.Collapse id="basic-navbar-nav">
+                <Nav className="mr-auto">
+                  <Nav.Link href="/signin">Log-in</Nav.Link>
+                  <Nav.Link href="/signup">Sign up</Nav.Link>
+                  {/* <Nav.Link href="/signout" onClick={logout}>
+                    Log out
+                  </Nav.Link> */}
+                </Nav>
+              </Navbar.Collapse>
+            </Navbar>
+            {/* </div> */}
+          </>
+        );
+      }
+    };
+
+    return <div className="home-navbar-container">{renderAuthButton()}</div>;
+  }
+}
 export default HomeNavBar;
