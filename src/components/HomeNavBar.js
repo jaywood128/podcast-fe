@@ -7,35 +7,33 @@ import UserService from "../services/user.service";
 
 class HomeNavBar extends Component {
   render() {
-    const user = UserService.isAuth() ? AuthService.getCurrentUser : "";
-    // eslint-disable-next-line no-console
-    console.log("Current User: " + AuthService.getCurrentUser());
-    // AuthService.getCurrentUser() !== null ? AuthService.getCurrentUser() : null;
     const logout = () => {
       AuthService.logout();
     };
 
     const renderAuthButton = () => {
-      if (user) {
+      if (UserService.isAuth()) {
         return (
           <>
             <i className="fas fa-podcast fa-5x"></i>
-            <Navbar
-              bg="dark"
-              variant="dark"
-              activekey="/home"
-              onSelect={(selectedKey) => alert(`selected ${selectedKey}`)}
-            >
+            <Navbar bg="dark" variant="dark" activekey="/home">
               <Navbar.Brand href="/">
                 <img
                   className="fas fa-podcast fa-5x"
-                  style={{ color: "#b3b3b3", "margin-left": "100px" }}
+                  style={{
+                    color: "#fc8eac !important",
+                    "margin-left": "100px",
+                  }}
                 ></img>
               </Navbar.Brand>
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
-                  <Nav.Link href="/signout" onClick={logout}>
+                  <Nav.Link
+                    style={{ "margin-left": "700px" }}
+                    href="/signout"
+                    onClick={logout}
+                  >
                     Log out
                   </Nav.Link>
                 </Nav>
@@ -52,7 +50,7 @@ class HomeNavBar extends Component {
               bg="dark"
               variant="dark"
               activeKey="/home"
-              onSelect={(selectedKey) => alert(`selected ${selectedKey}`)}
+              // onSelect={(selectedKey) => alert(`selected ${selectedKey}`)}
             >
               <Navbar.Brand href="/">
                 <img

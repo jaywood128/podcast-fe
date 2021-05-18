@@ -55,9 +55,9 @@ const Podcasts = () => {
   }, []);
 
   return (
-    // <div className="podcasts-container">
-    <Podcast podcasts={podcasts} />
-    // </div>
+    <div className="podcasts-container">
+      <Podcast podcasts={podcasts} />
+    </div>
   );
 };
 

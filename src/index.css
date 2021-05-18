@@ -11,13 +11,15 @@ body {
   font-weight: 400;
   height: 100vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  /* justify-content: center;
+  align-items: center; */
   background-color: #121212;
+  color: #f8f8f8;
 }
 .root {
-  display: flex !important;
-  justify-content: flex-start !important;
+  /* display: flex !important;
+  justify-content: flex-start !important; */
+  width: 100vh;
 }
 .app-container {
   display: flex;
@@ -105,7 +107,7 @@ textarea .mr-sm-2 .form-control {
 
 .podcasts-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   margin-left: 200px;
 
@@ -130,8 +132,11 @@ div .card {
 }
 
 .podcast-container {
-  display: flex;
+  /* display: flex; */
   margin-left: 100px;
+}
+.podcast-container h2 {
+  font-size: 160%;
 }
 .card {
   border: 5px solid rgba(0, 0, 0, 0.125);

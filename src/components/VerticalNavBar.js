@@ -18,7 +18,7 @@ const VerticalNavBar = () => {
           <li>
             {" "}
             <i className="fas fa-list" style={{ color: "#b3b3b3" }}></i>
-            <Link to="#" bsClass="link">
+            <Link to="/library" bsClass="link">
               Shows
             </Link>
           </li>

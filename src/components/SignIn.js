@@ -58,8 +58,8 @@ const SignIn = (props) => {
       () => {
         // eslint-disable-next-line no-console
         console.log(authService.getCurrentUser);
-        props.history.push("/");
-        // window.location.reload();
+        props.history.push("/library");
+        window.location.reload();
       },
       (error) => {
         const resMessage =
